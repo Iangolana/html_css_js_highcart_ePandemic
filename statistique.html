@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/iconfont/material-icons.css">
+    <script src="assets/js/javaScriptAsset.js"></script>
+    <script src="assets/js/materialize.min.js"></script>
+    <script src="assets/js/jsadd.js"></script>
+    <script src="assets/js/Highcharts-7.1.1/code/highcharts.js"></script>
+    <title>Statistique</title>
+
+    <style>
+        header{
+            background: url(images/statCorona.jpg);
+            background-size: cover;
+            background-position: center;
+            min-height: 500px;
+        }
+
+        .section{
+            padding-top: 4vw;
+            padding-bottom : 4vw;
+        }
+
+        .tabs .indicator{
+            background-color: #1a237e;
+        }
+
+        .tabs .tab a:focus, .tabs .tab a:focus.active{
+            background: transparent;
+        }
+
+        p{
+            text-align: justify;
+        }
+
+        @media screen and (max-width: 670px){
+            header{
+                min-height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-wrapper transparent">
+            <div class="container">
+                <a href="index.html" class="brand-logo white-text">E-pandemic</a>
+                <a href="#" class="sidenav-trigger" data-target="mobile-menu">
+                    <i class="material-icons black-text">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="worldCoro.html">Monde et Corona</a></li>
+                    <li><a href="statistique.html">Statistique</a></li>
+                    <li><a href="urgence.html">Urgence</a></li>
+                </ul>
+                <ul class="sidenav white darken-4" id="mobile-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="worldCoro.html">Monde et Corona</a></li>
+                    <li><a href="statistique.html">Statistique</a></li>
+                    <li><a href="urgence.html">Urgence</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Les statistiques</h1>
+        <div id="chartcontaint"></div>
+        <div id="chartcontaint2"></div>
+        <div id="chartcontaint3"></div>
+    </main>
+
+    <footer class="page-footer grey darken-3">
+        <div class="footer-copyright grey darken-4">
+            <div class="container center-align">&copy; 2020 RiaRolsmane</div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script type="text/javascript">
+$(function () {
+    $('#chartcontaint').highcharts({
+        chart:{
+            type: 'line'
+        },
+        title: {
+            text: "Evolution mensuelle du corona",
+            x: -20
+        },
+        subtitle: {
+            text: "Source: données fictives",
+            x:-20
+        },
+        xAxis: {
+            categories: ['Jan', 'Fev','Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+            title : {
+                text : 'Effectif'
+            },
+            type: 'logarithmic',
+            minorTickInterval: 0.1,
+            plotines: [{
+                value: 0,
+                widht: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip:{
+            valueSuffix: ' personnes'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'Nouveaux Cas',
+            data: [0, 0, 14, 254, 230, 145, 178, 259, 310, 215, 126, 250]
+        },
+        {
+            name: 'Guéris',
+            data: [0, 0, 100, 120, 150, 50, 60, 92, 41, 200, 125, 234]
+        },
+        {
+            name: 'Traitements',
+            data: [0, 0, 15, 30, 150, 200, 300, 250, 275, 240, 190, 100]
+        },
+        {
+            name: 'Morts',
+            data: [0, 0, 3, 15, 20, 31, 41, 51, 29, 25, 20, 10]
+        }]
+    })
+
+    $('#chartcontaint3').highcharts({
+        chart:{
+            type: 'scatter'
+        },
+        title: {
+            text: "Evolution mensuelle du corona",
+            x: -20
+        },
+        subtitle: {
+            text: "Source: données fictives",
+            x:-20
+        },
+        xAxis: {
+            categories: ['Jan', 'Fev','Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+            title : {
+                text : 'Effectif'
+            },
+            type: 'logarithmic',
+            minorTickInterval: 0.1,
+            plotines: [{
+                value: 0,
+                widht: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip:{
+            valueSuffix: ' personnes'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'Nouveaux Cas',
+            data: [0, 0, 14, 254, 230, 145, 178, 259, 310, 215, 126, 250]
+        },
+        {
+            name: 'Guéris',
+            data: [0, 0, 100, 120, 150, 50, 60, 92, 41, 200, 125, 234]
+        },
+        {
+            name: 'Traitements',
+            data: [0, 0, 15, 30, 150, 200, 300, 250, 275, 240, 190, 100]
+        },
+        {
+            name: 'Morts',
+            data: [0, 0, 3, 15, 20, 31, 41, 51, 29, 25, 20, 10]
+        }]
+    })
+
+    $('#chartcontaint2').highcharts({
+            chart :{
+                type: 'pie'
+            },
+            title:{
+                text: 'Statistique nouveau cas',
+                x: -20
+            },
+            subtitle:{
+                text: 'Source: Big creator',
+                x:-20
+            },
+            series: [{
+            name: 'Nouveaux Cas',
+            data: [0, 0, 14, 254, 230, 145, 178, 259, 310, 215, 126, 250]
+            },
+           ]
+        });
+})
+</script>
